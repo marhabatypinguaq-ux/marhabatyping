@@ -11,50 +11,60 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marhaba Typing & Document Clearing - Services & Requirements</title>
+    <title>Marhaba Typing & Document Clearing - UAQ</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #f0f4f8; color: #333; padding: 20px; }
-        header { text-align: center; background: linear-gradient(135deg, #003366, #004080); color: white; padding: 30px 20px; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        header h1 { font-size: 26px; margin-bottom: 8px; letter-spacing: 0.5px; }
-        header p { font-size: 14px; opacity: 0.9; margin-top: 5px; }
-
-        .search-container { text-align: center; margin-bottom: 30px; }
-        .search-container input { width: 100%; max-width: 550px; padding: 14px 22px; border: 2px solid #003366; border-radius: 30px; font-size: 16px; outline: none; box-shadow: 0 2px 8px rgba(0,0,0,0.05); transition: all 0.3s ease; }
-        .search-container input:focus { border-color: #0056b3; box-shadow: 0 4px 12px rgba(0,86,179,0.2); }
-
-        .section-title { font-size: 20px; color: #003366; border-bottom: 3px solid #003366; padding-bottom: 6px; margin: 35px 0 20px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+        body { background-color: #f4f8fb; color: #333; padding: 20px; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-        
-        /* Card Styling with Animation */
-        .card { background: white; padding: 25px 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.06); text-align: center; cursor: pointer; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); font-weight: bold; border-top: 4px solid #003366; position: relative; overflow: hidden; }
-        .card:hover { transform: translateY(-6px); box-shadow: 0 8px 25px rgba(0,51,102,0.15); background-color: #fafbfc; }
-        .card span { font-size: 35px; display: block; margin-bottom: 12px; transition: transform 0.3s; }
-        .card:hover span { transform: scale(1.1); }
-        .card h3 { font-size: 16px; color: #222; margin-bottom: 8px; }
-        .card p { font-size: 12px; color: #666; font-weight: normal; }
+        /* Header Banner */
+        header { text-align: center; background: linear-gradient(135deg, #002244, #004080); color: white; padding: 35px 20px; border-radius: 16px; margin-bottom: 30px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); animation: fadeInDown 0.8s ease; }
+        header h1 { font-size: 28px; margin-bottom: 8px; letter-spacing: 0.5px; }
+        header p { font-size: 14px; opacity: 0.95; margin-top: 4px; }
 
-        /* Modal Popup with Smooth Animation */
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); align-items: center; justify-content: center; backdrop-filter: blur(4px); animation: fadeIn 0.3s ease; }
-        .modal-content { background-color: white; padding: 30px; border-radius: 15px; max-width: 500px; width: 90%; text-align: left; box-shadow: 0 10px 30px rgba(0,0,0,0.3); position: relative; animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1); max-height: 85vh; overflow-y: auto; }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Search Bar */
+        .search-container { text-align: center; margin-bottom: 35px; animation: fadeIn 1s ease; }
+        .search-container input { width: 100%; max-width: 600px; padding: 15px 25px; border: 2px solid #003366; border-radius: 30px; font-size: 16px; outline: none; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: all 0.3s; }
+        .search-container input:focus { border-color: #0056b3; box-shadow: 0 6px 18px rgba(0,86,179,0.2); }
+
+        .section-title { font-size: 22px; color: #003366; border-bottom: 3px solid #003366; padding-bottom: 8px; margin: 40px 0 25px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+        
+        /* Grid Layout with Professional Cards */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        
+        .card { background: white; border-radius: 16px; box-shadow: 0 6px 15px rgba(0,0,0,0.06); text-align: center; cursor: pointer; transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); overflow: hidden; border: 1px solid #e1e8ed; position: relative; }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,51,102,0.15); border-color: #003366; }
+        
+        /* Image Thumbnail Header inside Card */
+        .card-img-container { width: 100%; height: 160px; overflow: hidden; position: relative; }
+        .card-img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .card:hover .card-img-container img { transform: scale(1.08); }
+        
+        .card-content { padding: 20px; }
+        .card h3 { font-size: 18px; color: #003366; margin-bottom: 8px; font-weight: 700; }
+        .card p { font-size: 13px; color: #666; line-height: 1.4; }
+
+        /* Modal Popup with Animation */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); align-items: center; justify-content: center; backdrop-filter: blur(5px); animation: fadeIn 0.3s ease; }
+        .modal-content { background-color: white; padding: 30px; border-radius: 18px; max-width: 520px; width: 90%; text-align: left; box-shadow: 0 15px 35px rgba(0,0,0,0.3); position: relative; animation: zoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1); max-height: 85vh; overflow-y: auto; }
         
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
-        .close-btn { position: absolute; top: 12px; right: 18px; font-size: 26px; font-weight: bold; cursor: pointer; color: #888; transition: color 0.2s; }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 28px; font-weight: bold; cursor: pointer; color: #888; transition: color 0.2s; }
         .close-btn:hover { color: #000; }
         
-        .modal-title { font-size: 20px; color: #003366; margin-bottom: 15px; border-bottom: 2px solid #eee; padding-bottom: 8px; }
-        .modal-subtitle { font-size: 14px; font-weight: bold; color: #444; margin-top: 12px; margin-bottom: 6px; }
+        .modal-title { font-size: 22px; color: #003366; margin-bottom: 15px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-weight: 700; }
+        .modal-subtitle { font-size: 15px; font-weight: bold; color: #004080; margin-top: 15px; margin-bottom: 8px; }
         .doc-list { margin-bottom: 20px; padding-left: 20px; line-height: 1.6; font-size: 14px; color: #444; }
         .steps-list { margin-bottom: 20px; padding-left: 20px; line-height: 1.6; font-size: 14px; color: #0056b3; font-weight: 500; }
         
-        .whatsapp-btn { display: block; width: 100%; background-color: #25D366; color: white; text-align: center; padding: 14px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 16px; border: none; cursor: pointer; transition: background 0.2s, transform 0.1s; box-shadow: 0 4px 10px rgba(37,211,102,0.3); }
-        .whatsapp-btn:hover { background-color: #1ebc57; transform: translateY(-2px); }
-        .email-info { text-align: center; font-size: 13px; color: #666; margin-top: 12px; }
+        .whatsapp-btn { display: block; width: 100%; background-color: #25D366; color: white; text-align: center; padding: 15px; border-radius: 10px; text-decoration: none; font-weight: bold; font-size: 16px; border: none; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 12px rgba(37,211,102,0.3); }
+        .whatsapp-btn:hover { background-color: #1ebc57; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(37,211,102,0.4); }
+        .email-info { text-align: center; font-size: 13px; color: #666; margin-top: 15px; }
 
-        footer { text-align: center; margin-top: 50px; font-size: 12px; color: #666; border-top: 1px solid #ddd; padding-top: 15px; }
+        footer { text-align: center; margin-top: 50px; font-size: 12px; color: #777; border-top: 1px solid #ddd; padding-top: 20px; }
     </style>
 </head>
 <body>
@@ -70,7 +80,7 @@
     </header>
 
     <div class="search-container">
-        <input type="text" id="searchInput" onkeyup="filterServices()" placeholder="Search services (e.g., Family Visa, Company Visa, Domestic)...">
+        <input type="text" id="searchInput" onkeyup="filterServices()" placeholder="Search services (e.g., Family Visa, Company, Domestic)...">
     </div>
 
     <!-- FAMILY VISA SECTION -->
@@ -80,80 +90,112 @@
             ['Sponsor Passport Copy', 'Sponsor Emirates ID Copy', 'Sponsor Visa Copy', 'Original Salary Certificate (or Labor Contract)', 'Attested Tenancy Contract (Ejari / Municipality)'], 
             ['Wife\'s Passport Scanned Copy (Both sides)', 'Passport Size Photo (White Background)', 'Marriage Certificate (Attested & Translated copy)'],
             ['Original Salary Certificate / Labor Contract', 'Attested Tenancy Contract', 'Marriage Certificate (Attested & Translated)', 'File Creation -> Entry Permit -> In/Out -> Medical & Health Insurance -> ID Typing -> Visa Stamping'])">
-            <span>👩</span>
-            <h3>New Family Visa — Wife</h3>
-            <p>Required documents & process details</p>
+            <div class="card-img-container">
+                <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80" alt="Family Visa">
+            </div>
+            <div class="card-content">
+                <h3>New Family Visa — Wife</h3>
+                <p>Required documents & step-by-step processing details</p>
+            </div>
         </div>
 
         <div class="card" onclick="openModal('New Family Visa — Child', 
             ['Sponsor Passport Copy', 'Sponsor Emirates ID Copy', 'Sponsor Visa Copy', 'Original Salary Certificate (or Labor Contract)', 'Attested Tenancy Contract (Ejari / Municipality)'], 
             ['Child\'s Passport Scanned Copy (Both sides)', 'Passport Size Photo (White Background)', 'Birth Certificate (Attested & Translated copy)'],
             ['Original Salary Certificate / Labor Contract', 'Attested Tenancy Contract', 'Birth Certificate (Attested & Translated)', 'File Creation -> Entry Permit -> In/Out -> Medical & Health Insurance -> ID Typing -> Visa Stamping'])">
-            <span>👶</span>
-            <h3>New Family Visa — Child</h3>
-            <p>Required documents & process details</p>
+            <div class="card-img-container">
+                <img src="https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?auto=format&fit=crop&w=600&q=80" alt="Child Visa">
+            </div>
+            <div class="card-content">
+                <h3>New Family Visa — Child</h3>
+                <p>Required documents & step-by-step processing details</p>
+            </div>
         </div>
 
         <div class="card" onclick="openModal('Renewal Family Visa — Wife', 
             ['Sponsor Passport Copy', 'Sponsor Emirates ID Copy', 'Sponsor Visa Copy', 'Original Salary Certificate (or Labor Contract)', 'Attested Tenancy Contract (Ejari / Municipality)'], 
             ['Wife\'s Scanned Passport Copy (Both sides)', 'Passport Size Photo (Studio quality)', 'Marriage Certificate (Attested & Translated copy)', 'Old Emirates ID Copy & Visa Copy'],
             ['Original Salary Certificate / Labor Contract', 'Attested Tenancy Contract', 'Medical & Health Insurance', 'ID Typing -> Visa Stamping'])">
-            <span>🔄</span>
-            <h3>Renewal Family Visa — Wife</h3>
-            <p>Required documents & process details</p>
+            <div class="card-img-container">
+                <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=600&q=80" alt="Renewal Wife">
+            </div>
+            <div class="card-content">
+                <h3>Renewal Family Visa — Wife</h3>
+                <p>Required documents & renewal steps</p>
+            </div>
         </div>
 
         <div class="card" onclick="openModal('Renewal Family Visa — Child', 
             ['Sponsor Passport Copy', 'Sponsor Emirates ID Copy', 'Sponsor Visa Copy', 'Original Salary Certificate (or Labor Contract)', 'Attested Tenancy Contract (Ejari / Municipality)'], 
             ['Child\'s Scanned Passport Copy (Both sides)', 'Passport Size Photo (Studio quality)', 'Birth Certificate (Attested & Translated copy)', 'Old Emirates ID Copy & Visa Copy'],
             ['Original Salary Certificate / Labor Contract', 'Attested Tenancy Contract', 'Medical & Health Insurance', 'ID Typing -> Visa Stamping'])">
-            <span>🔄</span>
-            <h3>Renewal Family Visa — Child</h3>
-            <p>Required documents & process details</p>
+            <div class="card-img-container">
+                <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=600&q=80" alt="Renewal Child">
+            </div>
+            <div class="card-content">
+                <h3>Renewal Family Visa — Child</h3>
+                <p>Required documents & renewal steps</p>
+            </div>
         </div>
     </div>
 
-    <!-- COMPANY VISA SECTION -->
-    <div class="section-title">🏢 Company Visa Services</div>
+    <!-- COMPANY / PROFESSIONAL VISA SECTION -->
+    <div class="section-title">💼 Company & Professional Visa Services</div>
     <div class="grid">
         <div class="card" onclick="openModal('New Residence Visa — Company', 
             ['Passport Copy (Front & Back)', 'Passport Size Photo (White Background)', 'Educational Certificate (If required)', 'Cancellation Paper (If canceled)', 'PCC (If required)'], 
             [],
             ['Offer Letter', 'Labor Payment', 'DXB Insurance', 'Entry Permit', 'In/Out', 'Tawjeeh', 'Medical & Health Insurance', 'ID Typing -> Visa Stamping'])">
-            <span>💼</span>
-            <h3>New Residence Visa (Company)</h3>
-            <p>Offer letter & processing steps</p>
+            <div class="card-img-container">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="Company Professional">
+            </div>
+            <div class="card-content">
+                <h3>New Residence Visa (Company)</h3>
+                <p>Offer letter & professional processing steps</p>
+            </div>
         </div>
 
         <div class="card" onclick="openModal('Renew Residence Visa — Company', 
             ['Valid Passport Copy (Front & Back)', 'Passport Size Photo (White Background)'], 
             [],
             ['Labor Renewal Typing', 'Labor Payment', 'DXB Insurance', 'Medical & Health Insurance', 'ID Typing -> Visa Stamping'])">
-            <span>📋</span>
-            <h3>Renew Residence Visa (Company)</h3>
-            <p>Renewal requirements & steps</p>
+            <div class="card-img-container">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Company Renewal">
+            </div>
+            <div class="card-content">
+                <h3>Renew Residence Visa (Company)</h3>
+                <p>Renewal requirements & steps</p>
+            </div>
         </div>
     </div>
 
-    <!-- DOMESTIC VISA SECTION -->
+    <!-- DOMESTIC WORKER VISA SECTION -->
     <div class="section-title">🏠 Domestic Worker Visa Services</div>
     <div class="grid">
         <div class="card" onclick="openModal('New Visa for Domestic Worker', 
             ['Sponsor & Worker Documents', 'Passport Copies & Photos'], 
             [],
             ['DXB Insurance', 'Entry Permit', 'In/Out', 'Medical & Health Insurance', 'ID Typing -> Visa Stamping'])">
-            <span>🧑‍🔧</span>
-            <h3>New Visa for Domestic</h3>
-            <p>Insurance, medical & stamping steps</p>
+            <div class="card-img-container">
+                <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80" alt="Domestic Worker">
+            </div>
+            <div class="card-content">
+                <h3>New Visa for Domestic</h3>
+                <p>Insurance, medical & stamping steps</p>
+            </div>
         </div>
 
         <div class="card" onclick="openModal('Renew Visa for Domestic Worker', 
             ['Valid Passport & ID Copies'], 
             [],
             ['Contract Typing', 'DXB Insurance', 'Medical & Health Insurance', 'ID Typing -> Visa Stamping'])">
-            <span>🏠</span>
-            <h3>Renew Visa for Domestic</h3>
-            <p>Contract, insurance & renewal steps</p>
+            <div class="card-img-container">
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=600&q=80" alt="Domestic Renewal">
+            </div>
+            <div class="card-content">
+                <h3>Renew Visa for Domestic</h3>
+                <p>Contract, insurance & renewal steps</p>
+            </div>
         </div>
     </div>
 
@@ -202,7 +244,7 @@
 
             if(applicantDocs.length > 0) {
                 var apHeader = document.createElement('li');
-                apHeader.innerHTML = '<strong style="margin-top:5px; display:inline-block;">Applicant Documents:</strong>';
+                apHeader.innerHTML = '<strong style="margin-top:5px; display:inline-block;">Applicant / Worker Documents:</strong>';
                 docList.appendChild(apHeader);
                 applicantDocs.forEach(function(doc) {
                     var li = document.createElement('li');
