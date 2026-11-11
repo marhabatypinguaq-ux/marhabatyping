@@ -13,37 +13,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marhaba Typing & Document Clearing - UAQ</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #f4f8fb; color: #333; padding: 20px; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; scroll-behavior: smooth; }
+        body { background-color: #f0f4f8; color: #333; }
         
-        /* Header Banner */
-        header { text-align: center; background: linear-gradient(135deg, #002244, #004080); color: white; padding: 35px 20px; border-radius: 16px; margin-bottom: 30px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); animation: fadeInDown 0.8s ease; }
-        header h1 { font-size: 28px; margin-bottom: 8px; letter-spacing: 0.5px; }
-        header p { font-size: 14px; opacity: 0.95; margin-top: 4px; }
+        /* Big Professional Header */
+        header { background: linear-gradient(135deg, #001f3f, #003366); color: white; padding: 40px 30px; text-align: center; box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+        header h1 { font-size: 32px; margin-bottom: 10px; letter-spacing: 1px; font-weight: 800; }
+        header p { font-size: 16px; opacity: 0.95; margin-top: 6px; font-weight: 400; }
 
-        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        /* Welcome Landing Hero Section */
+        .hero-section { background: linear-gradient(rgba(0,33,63,0.85), rgba(0,51,102,0.85)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover; color: white; text-align: center; padding: 80px 20px; margin-bottom: 40px; border-bottom: 5px solid #ffcc00; }
+        .hero-section h2 { font-size: 36px; margin-bottom: 15px; font-weight: 700; }
+        .hero-section p { font-size: 18px; max-width: 700px; margin: 0 auto 25px auto; opacity: 0.9; line-height: 1.5; }
+        .cta-btn { background-color: #25D366; color: white; padding: 14px 35px; font-size: 18px; font-weight: bold; border: none; border-radius: 30px; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s; box-shadow: 0 4px 15px rgba(37,211,102,0.4); }
+        .cta-btn:hover { background-color: #1ebc57; transform: translateY(-3px); box-shadow: 0 6px 20px rgba(37,211,102,0.6); }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
         /* Search Bar */
-        .search-container { text-align: center; margin-bottom: 35px; animation: fadeIn 1s ease; }
-        .search-container input { width: 100%; max-width: 600px; padding: 15px 25px; border: 2px solid #003366; border-radius: 30px; font-size: 16px; outline: none; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: all 0.3s; }
-        .search-container input:focus { border-color: #0056b3; box-shadow: 0 6px 18px rgba(0,86,179,0.2); }
+        .search-container { text-align: center; margin-bottom: 40px; }
+        .search-container input { width: 100%; max-width: 600px; padding: 16px 25px; border: 2px solid #003366; border-radius: 30px; font-size: 16px; outline: none; box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: all 0.3s; }
+        .search-container input:focus { border-color: #0056b3; box-shadow: 0 6px 20px rgba(0,86,179,0.2); }
 
-        .section-title { font-size: 22px; color: #003366; border-bottom: 3px solid #003366; padding-bottom: 8px; margin: 40px 0 25px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+        .section-title { font-size: 24px; color: #003366; border-bottom: 3px solid #003366; padding-bottom: 8px; margin: 50px 0 25px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
         
-        /* Grid Layout with Professional Cards */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        /* Grid Layout with Clean Square Cards */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
         
-        .card { background: white; border-radius: 16px; box-shadow: 0 6px 15px rgba(0,0,0,0.06); text-align: center; cursor: pointer; transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); overflow: hidden; border: 1px solid #e1e8ed; position: relative; }
+        .card { background: white; border-radius: 14px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); text-align: center; cursor: pointer; transition: all 0.3s ease; overflow: hidden; border: 1px solid #e1e8ed; position: relative; display: flex; flex-direction: column; }
         .card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,51,102,0.15); border-color: #003366; }
         
-        /* Image Thumbnail Header inside Card */
-        .card-img-container { width: 100%; height: 160px; overflow: hidden; position: relative; }
-        .card-img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        /* Controlled Image Container for Clean Look */
+        .card-img-container { width: 100%; height: 140px; overflow: hidden; position: relative; background: #eef3f8; }
+        .card-img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
         .card:hover .card-img-container img { transform: scale(1.08); }
         
-        .card-content { padding: 20px; }
-        .card h3 { font-size: 18px; color: #003366; margin-bottom: 8px; font-weight: 700; }
-        .card p { font-size: 13px; color: #666; line-height: 1.4; }
+        .card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
+        .card h3 { font-size: 16px; color: #003366; margin-bottom: 6px; font-weight: 700; }
+        .card p { font-size: 12px; color: #666; line-height: 1.4; }
 
         /* Modal Popup with Animation */
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); align-items: center; justify-content: center; backdrop-filter: blur(5px); animation: fadeIn 0.3s ease; }
@@ -64,7 +71,10 @@
         .whatsapp-btn:hover { background-color: #1ebc57; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(37,211,102,0.4); }
         .email-info { text-align: center; font-size: 13px; color: #666; margin-top: 15px; }
 
-        footer { text-align: center; margin-top: 50px; font-size: 12px; color: #777; border-top: 1px solid #ddd; padding-top: 20px; }
+        /* Big Professional Footer */
+        footer { background: #001f3f; color: white; text-align: center; margin-top: 60px; padding: 30px 20px; border-top: 4px solid #003366; }
+        footer p { font-size: 14px; opacity: 0.9; margin-bottom: 6px; }
+        footer .footer-sub { font-size: 12px; opacity: 0.6; }
     </style>
 </head>
 <body>
@@ -73,128 +83,139 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K3PH9CSK"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
+    <!-- Header -->
     <header>
         <h1>MARHABA TYPING & DOCUMENT CLEARING</h1>
         <p>Old Industrial Area, Umm Al Quwain</p>
-        <p>📱 Mob: 056 934 9333 &nbsp;|&nbsp; ✉️ Email: marhabatypinguaq@gmail.com</p>
+        <p style="margin-top: 8px; font-size: 15px;">📱 Mob: 056 934 9333 &nbsp;|&nbsp; ✉️ Email: marhabatypinguaq@gmail.com</p>
     </header>
 
-    <div class="search-container">
-        <input type="text" id="searchInput" onkeyup="filterServices()" placeholder="Search services (e.g., Family Visa, Company, Domestic)...">
+    <!-- Hero Home Landing Section -->
+    <div class="hero-section" id="home">
+        <h2>Fast & Reliable Government & Typing Services</h2>
+        <p>Select your required service below to instantly view document checklists, processing steps, and send inquiries directly via WhatsApp.</p>
+        <a href="#services" class="cta-btn">Explore Services ↓</a>
     </div>
 
-    <!-- FAMILY VISA SECTION -->
-    <div class="section-title">👨‍👩‍👧 Family Visa Services</div>
-    <div class="grid" id="serviceGrid">
-        <div class="card" onclick="openModal('New Family Visa — Wife', 
-            ['Sponsor Passport Copy', 'Sponsor Emirates ID Copy', 'Sponsor Visa Copy', 'Original Salary Certificate (or Labor Contract)', 'Attested Tenancy Contract (Ejari / Municipality)'], 
-            ['Wife\'s Passport Scanned Copy (Both sides)', 'Passport Size Photo (White Background)', 'Marriage Certificate (Attested & Translated copy)'],
-            ['Original Salary Certificate / Labor Contract', 'Attested Tenancy Contract', 'Marriage Certificate (Attested & Translated)', 'File Creation -> Entry Permit -> In/Out -> Medical & Health Insurance -> ID Typing -> Visa Stamping'])">
-            <div class="card-img-container">
-                <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80" alt="Family Visa">
+    <div class="container" id="services">
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="searchInput" onkeyup="filterServices()" placeholder="Search services (e.g., Family Visa, Company, Domestic)...">
+        </div>
+
+        <!-- FAMILY VISA SECTION -->
+        <div class="section-title">👨‍👩‍👧 Family Visa Services</div>
+        <div class="grid" id="serviceGrid">
+            <div class="card" onclick="openModal('New Family Visa — Wife', 
+                ['Sponsor Passport Copy', 'Sponsor Emirates ID Copy', 'Sponsor Visa Copy', 'Original Salary Certificate (or Labor Contract)', 'Attested Tenancy Contract (Ejari / Municipality)'], 
+                ['Wife\'s Passport Scanned Copy (Both sides)', 'Passport Size Photo (White Background)', 'Marriage Certificate (Attested & Translated copy)'],
+                ['Original Salary Certificate / Labor Contract', 'Attested Tenancy Contract', 'Marriage Certificate (Attested & Translated)', 'File Creation -> Entry Permit -> In/Out -> Medical & Health Insurance -> ID Typing -> Visa Stamping'])">
+                <div class="card-img-container">
+                    <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=500&q=80" alt="Family Visa">
+                </div>
+                <div class="card-content">
+                    <h3>New Family Visa — Wife</h3>
+                    <p>Required docs & step-by-step process</p>
+                </div>
             </div>
-            <div class="card-content">
-                <h3>New Family Visa — Wife</h3>
-                <p>Required documents & step-by-step processing details</p>
+
+            <div class="card" onclick="openModal('New Family Visa — Child', 
+                ['Sponsor Passport Copy', 'Sponsor Emirates ID Copy', 'Sponsor Visa Copy', 'Original Salary Certificate (or Labor Contract)', 'Attested Tenancy Contract (Ejari / Municipality)'], 
+                ['Child\'s Passport Scanned Copy (Both sides)', 'Passport Size Photo (White Background)', 'Birth Certificate (Attested & Translated copy)'],
+                ['Original Salary Certificate / Labor Contract', 'Attested Tenancy Contract', 'Birth Certificate (Attested & Translated)', 'File Creation -> Entry Permit -> In/Out -> Medical & Health Insurance -> ID Typing -> Visa Stamping'])">
+                <div class="card-img-container">
+                    <img src="https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?auto=format&fit=crop&w=500&q=80" alt="Child Visa">
+                </div>
+                <div class="card-content">
+                    <h3>New Family Visa — Child</h3>
+                    <p>Required docs & step-by-step process</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('Renewal Family Visa — Wife', 
+                ['Sponsor Passport Copy', 'Sponsor Emirates ID Copy', 'Sponsor Visa Copy', 'Original Salary Certificate (or Labor Contract)', 'Attested Tenancy Contract (Ejari / Municipality)'], 
+                ['Wife\'s Scanned Passport Copy (Both sides)', 'Passport Size Photo (Studio quality)', 'Marriage Certificate (Attested & Translated copy)', 'Old Emirates ID Copy & Visa Copy'],
+                ['Original Salary Certificate / Labor Contract', 'Attested Tenancy Contract', 'Medical & Health Insurance', 'ID Typing -> Visa Stamping'])">
+                <div class="card-img-container">
+                    <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=500&q=80" alt="Renewal Wife">
+                </div>
+                <div class="card-content">
+                    <h3>Renewal Family Visa — Wife</h3>
+                    <p>Required docs & renewal steps</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('Renewal Family Visa — Child', 
+                ['Sponsor Passport Copy', 'Sponsor Emirates ID Copy', 'Sponsor Visa Copy', 'Original Salary Certificate (or Labor Contract)', 'Attested Tenancy Contract (Ejari / Municipality)'], 
+                ['Child\'s Scanned Passport Copy (Both sides)', 'Passport Size Photo (Studio quality)', 'Birth Certificate (Attested & Translated copy)', 'Old Emirates ID Copy & Visa Copy'],
+                ['Original Salary Certificate / Labor Contract', 'Attested Tenancy Contract', 'Medical & Health Insurance', 'ID Typing -> Visa Stamping'])">
+                <div class="card-img-container">
+                    <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=500&q=80" alt="Renewal Child">
+                </div>
+                <div class="card-content">
+                    <h3>Renewal Family Visa — Child</h3>
+                    <p>Required docs & renewal steps</p>
+                </div>
             </div>
         </div>
 
-        <div class="card" onclick="openModal('New Family Visa — Child', 
-            ['Sponsor Passport Copy', 'Sponsor Emirates ID Copy', 'Sponsor Visa Copy', 'Original Salary Certificate (or Labor Contract)', 'Attested Tenancy Contract (Ejari / Municipality)'], 
-            ['Child\'s Passport Scanned Copy (Both sides)', 'Passport Size Photo (White Background)', 'Birth Certificate (Attested & Translated copy)'],
-            ['Original Salary Certificate / Labor Contract', 'Attested Tenancy Contract', 'Birth Certificate (Attested & Translated)', 'File Creation -> Entry Permit -> In/Out -> Medical & Health Insurance -> ID Typing -> Visa Stamping'])">
-            <div class="card-img-container">
-                <img src="https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?auto=format&fit=crop&w=600&q=80" alt="Child Visa">
+        <!-- COMPANY / PROFESSIONAL VISA SECTION -->
+        <div class="section-title">💼 Company & Professional Visa Services</div>
+        <div class="grid">
+            <div class="card" onclick="openModal('New Residence Visa — Company', 
+                ['Passport Copy (Front & Back)', 'Passport Size Photo (White Background)', 'Educational Certificate (If required)', 'Cancellation Paper (If canceled)', 'PCC (If required)'], 
+                [],
+                ['Offer Letter', 'Labor Payment', 'DXB Insurance', 'Entry Permit', 'In/Out', 'Tawjeeh', 'Medical & Health Insurance', 'ID Typing -> Visa Stamping'])">
+                <div class="card-img-container">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=500&q=80" alt="Company Professional">
+                </div>
+                <div class="card-content">
+                    <h3>New Residence Visa (Company)</h3>
+                    <p>Offer letter & professional steps</p>
+                </div>
             </div>
-            <div class="card-content">
-                <h3>New Family Visa — Child</h3>
-                <p>Required documents & step-by-step processing details</p>
+
+            <div class="card" onclick="openModal('Renew Residence Visa — Company', 
+                ['Valid Passport Copy (Front & Back)', 'Passport Size Photo (White Background)'], 
+                [],
+                ['Labor Renewal Typing', 'Labor Payment', 'DXB Insurance', 'Medical & Health Insurance', 'ID Typing -> Visa Stamping'])">
+                <div class="card-img-container">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=500&q=80" alt="Company Renewal">
+                </div>
+                <div class="card-content">
+                    <h3>Renew Residence Visa (Company)</h3>
+                    <p>Renewal requirements & steps</p>
+                </div>
             </div>
         </div>
 
-        <div class="card" onclick="openModal('Renewal Family Visa — Wife', 
-            ['Sponsor Passport Copy', 'Sponsor Emirates ID Copy', 'Sponsor Visa Copy', 'Original Salary Certificate (or Labor Contract)', 'Attested Tenancy Contract (Ejari / Municipality)'], 
-            ['Wife\'s Scanned Passport Copy (Both sides)', 'Passport Size Photo (Studio quality)', 'Marriage Certificate (Attested & Translated copy)', 'Old Emirates ID Copy & Visa Copy'],
-            ['Original Salary Certificate / Labor Contract', 'Attested Tenancy Contract', 'Medical & Health Insurance', 'ID Typing -> Visa Stamping'])">
-            <div class="card-img-container">
-                <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=600&q=80" alt="Renewal Wife">
+        <!-- DOMESTIC WORKER VISA SECTION -->
+        <div class="section-title">🏠 Domestic Worker Visa Services</div>
+        <div class="grid">
+            <div class="card" onclick="openModal('New Visa for Domestic Worker', 
+                ['Sponsor & Worker Documents', 'Passport Copies & Photos'], 
+                [],
+                ['DXB Insurance', 'Entry Permit', 'In/Out', 'Medical & Health Insurance', 'ID Typing -> Visa Stamping'])">
+                <div class="card-img-container">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=500&q=80" alt="Domestic Worker">
+                </div>
+                <div class="card-content">
+                    <h3>New Visa for Domestic</h3>
+                    <p>Insurance, medical & stamping steps</p>
+                </div>
             </div>
-            <div class="card-content">
-                <h3>Renewal Family Visa — Wife</h3>
-                <p>Required documents & renewal steps</p>
-            </div>
-        </div>
 
-        <div class="card" onclick="openModal('Renewal Family Visa — Child', 
-            ['Sponsor Passport Copy', 'Sponsor Emirates ID Copy', 'Sponsor Visa Copy', 'Original Salary Certificate (or Labor Contract)', 'Attested Tenancy Contract (Ejari / Municipality)'], 
-            ['Child\'s Scanned Passport Copy (Both sides)', 'Passport Size Photo (Studio quality)', 'Birth Certificate (Attested & Translated copy)', 'Old Emirates ID Copy & Visa Copy'],
-            ['Original Salary Certificate / Labor Contract', 'Attested Tenancy Contract', 'Medical & Health Insurance', 'ID Typing -> Visa Stamping'])">
-            <div class="card-img-container">
-                <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=600&q=80" alt="Renewal Child">
-            </div>
-            <div class="card-content">
-                <h3>Renewal Family Visa — Child</h3>
-                <p>Required documents & renewal steps</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- COMPANY / PROFESSIONAL VISA SECTION -->
-    <div class="section-title">💼 Company & Professional Visa Services</div>
-    <div class="grid">
-        <div class="card" onclick="openModal('New Residence Visa — Company', 
-            ['Passport Copy (Front & Back)', 'Passport Size Photo (White Background)', 'Educational Certificate (If required)', 'Cancellation Paper (If canceled)', 'PCC (If required)'], 
-            [],
-            ['Offer Letter', 'Labor Payment', 'DXB Insurance', 'Entry Permit', 'In/Out', 'Tawjeeh', 'Medical & Health Insurance', 'ID Typing -> Visa Stamping'])">
-            <div class="card-img-container">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="Company Professional">
-            </div>
-            <div class="card-content">
-                <h3>New Residence Visa (Company)</h3>
-                <p>Offer letter & professional processing steps</p>
-            </div>
-        </div>
-
-        <div class="card" onclick="openModal('Renew Residence Visa — Company', 
-            ['Valid Passport Copy (Front & Back)', 'Passport Size Photo (White Background)'], 
-            [],
-            ['Labor Renewal Typing', 'Labor Payment', 'DXB Insurance', 'Medical & Health Insurance', 'ID Typing -> Visa Stamping'])">
-            <div class="card-img-container">
-                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Company Renewal">
-            </div>
-            <div class="card-content">
-                <h3>Renew Residence Visa (Company)</h3>
-                <p>Renewal requirements & steps</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- DOMESTIC WORKER VISA SECTION -->
-    <div class="section-title">🏠 Domestic Worker Visa Services</div>
-    <div class="grid">
-        <div class="card" onclick="openModal('New Visa for Domestic Worker', 
-            ['Sponsor & Worker Documents', 'Passport Copies & Photos'], 
-            [],
-            ['DXB Insurance', 'Entry Permit', 'In/Out', 'Medical & Health Insurance', 'ID Typing -> Visa Stamping'])">
-            <div class="card-img-container">
-                <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80" alt="Domestic Worker">
-            </div>
-            <div class="card-content">
-                <h3>New Visa for Domestic</h3>
-                <p>Insurance, medical & stamping steps</p>
-            </div>
-        </div>
-
-        <div class="card" onclick="openModal('Renew Visa for Domestic Worker', 
-            ['Valid Passport & ID Copies'], 
-            [],
-            ['Contract Typing', 'DXB Insurance', 'Medical & Health Insurance', 'ID Typing -> Visa Stamping'])">
-            <div class="card-img-container">
-                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=600&q=80" alt="Domestic Renewal">
-            </div>
-            <div class="card-content">
-                <h3>Renew Visa for Domestic</h3>
-                <p>Contract, insurance & renewal steps</p>
+            <div class="card" onclick="openModal('Renew Visa for Domestic Worker', 
+                ['Valid Passport & ID Copies'], 
+                [],
+                ['Contract Typing', 'DXB Insurance', 'Medical & Health Insurance', 'ID Typing -> Visa Stamping'])">
+                <div class="card-img-container">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=500&q=80" alt="Domestic Renewal">
+                </div>
+                <div class="card-content">
+                    <h3>Renew Visa for Domestic</h3>
+                    <p>Contract, insurance & renewal steps</p>
+                </div>
             </div>
         </div>
     </div>
@@ -220,8 +241,11 @@
         </div>
     </div>
 
+    <!-- Footer -->
     <footer>
-        <p>Powered by ATAVA Digital Services & Trading</p>
+        <p><strong>MARHABA TYPING & DOCUMENT CLEARING</strong></p>
+        <p>Old Industrial Area, Umm Al Quwain, UAE | Mob: 056 934 9333</p>
+        <p class="footer-sub" style="margin-top: 10px;">Powered by ATAVA Digital Services & Trading</p>
     </footer>
 
     <script>
@@ -279,7 +303,6 @@
             document.getElementById('serviceModal').style.display = 'none';
         }
 
-        // Close modal when clicking outside content
         window.onclick = function(event) {
             var modal = document.getElementById('serviceModal');
             if (event.target == modal) {
