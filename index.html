@@ -14,12 +14,12 @@
     <title>Marhaba Typing & Document Clearing - UAQ</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #f0f4f8; color: #333; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; }
+        body { background-color: #eef3f8; color: #222; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; font-size: 20px; }
         
-        /* Big Professional Header */
-        header { background: linear-gradient(135deg, #001f3f, #003366); color: white; padding: 45px 30px; text-align: center; box-shadow: 0 6px 20px rgba(0,0,0,0.25); border-bottom: 6px solid #ffcc00; }
-        header h1 { font-size: 34px; margin-bottom: 12px; letter-spacing: 1px; font-weight: 800; text-transform: uppercase; }
-        header p { font-size: 17px; opacity: 0.95; margin-top: 6px; font-weight: 400; }
+        /* Extra Large Professional Header */
+        header { background: linear-gradient(135deg, #001833, #003366); color: white; padding: 65px 30px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.35); border-bottom: 10px solid #ffcc00; }
+        header h1 { font-size: 48px; margin-bottom: 16px; letter-spacing: 2px; font-weight: 800; text-transform: uppercase; }
+        header p { font-size: 22px; opacity: 0.95; margin-top: 10px; font-weight: 600; }
 
         /* Main Wrapper Views */
         .view-section { display: none; width: 100%; animation: fadeIn 0.4s ease-in-out; }
@@ -28,61 +28,66 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         /* PAGE 1: Welcome Home Landing Page */
-        .welcome-hero { background: linear-gradient(rgba(0,31,63,0.85), rgba(0,51,102,0.85)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover; color: white; text-align: center; padding: 100px 20px; border-radius: 16px; margin: 40px auto; max-width: 1100px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
-        .welcome-hero h2 { font-size: 42px; margin-bottom: 20px; font-weight: 800; }
-        .welcome-hero p { font-size: 20px; max-width: 750px; margin: 0 auto 35px auto; opacity: 0.95; line-height: 1.6; }
-        .enter-btn { background-color: #25D366; color: white; padding: 18px 45px; font-size: 20px; font-weight: bold; border: none; border-radius: 35px; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s; box-shadow: 0 6px 20px rgba(37,211,102,0.5); }
-        .enter-btn:hover { background-color: #1ebc57; transform: translateY(-4px); box-shadow: 0 8px 25px rgba(37,211,102,0.7); }
+        .welcome-hero { background: linear-gradient(rgba(0,24,51,0.9), rgba(0,51,102,0.9)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover; color: white; text-align: center; padding: 100px 30px; border-radius: 24px; margin: 50px auto; max-width: 1250px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+        
+        /* Logo Styling on Home Page */
+        .home-logo { width: 140px; height: 140px; margin: 0 auto 25px auto; background: white; padding: 15px; border-radius: 50%; box-shadow: 0 8px 25px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; }
+        .home-logo img { width: 100%; height: 100%; object-fit: contain; }
+
+        .welcome-hero h2 { font-size: 52px; margin-bottom: 25px; font-weight: 800; }
+        .welcome-hero p { font-size: 24px; max-width: 900px; margin: 0 auto 45px auto; opacity: 0.95; line-height: 1.6; font-weight: 500; }
+        .enter-btn { background-color: #25D366; color: white; padding: 22px 55px; font-size: 24px; font-weight: bold; border: none; border-radius: 45px; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.3s; box-shadow: 0 10px 30px rgba(37,211,102,0.5); }
+        .enter-btn:hover { background-color: #1ebc57; transform: translateY(-4px); box-shadow: 0 12px 35px rgba(37,211,102,0.7); }
 
         /* PAGE 2: Services Dashboard */
-        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; width: 100%; }
+        .container { max-width: 1350px; margin: 40px auto; padding: 0 25px; width: 100%; }
         
-        .back-nav { margin-bottom: 25px; }
-        .back-btn { background: #003366; color: white; border: none; padding: 10px 22px; font-size: 15px; font-weight: bold; border-radius: 8px; cursor: pointer; transition: background 0.2s; }
-        .back-btn:hover { background: #002244; }
+        .back-nav { margin-bottom: 35px; }
+        .back-btn { background: #003366; color: white; border: none; padding: 16px 32px; font-size: 20px; font-weight: bold; border-radius: 12px; cursor: pointer; transition: background 0.2s; box-shadow: 0 6px 15px rgba(0,0,0,0.2); }
+        .back-btn:hover { background: #001f3f; }
 
-        .search-container { text-align: center; margin-bottom: 35px; }
-        .search-container input { width: 100%; max-width: 600px; padding: 16px 25px; border: 2px solid #003366; border-radius: 30px; font-size: 16px; outline: none; box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: all 0.3s; }
-        .search-container input:focus { border-color: #0056b3; box-shadow: 0 6px 20px rgba(0,86,179,0.2); }
+        .search-container { text-align: center; margin-bottom: 50px; }
+        .search-container input { width: 100%; max-width: 750px; padding: 20px 35px; border: 3px solid #003366; border-radius: 40px; font-size: 20px; outline: none; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.3s; }
+        .search-container input:focus { border-color: #0056b3; box-shadow: 0 10px 30px rgba(0,86,179,0.3); }
 
-        .section-title { font-size: 24px; color: #003366; border-bottom: 3px solid #003366; padding-bottom: 8px; margin: 40px 0 25px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+        .section-title { font-size: 32px; color: #003366; border-bottom: 4px solid #003366; padding-bottom: 12px; margin: 60px 0 35px; font-weight: 800; display: flex; align-items: center; gap: 15px; }
         
-        /* Grid Layout with Clean Square Cards */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+        /* Grid Layout with Bigger Cards */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 35px; }
         
-        .card { background: white; border-radius: 14px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); text-align: center; cursor: pointer; transition: all 0.3s ease; overflow: hidden; border: 1px solid #e1e8ed; display: flex; flex-direction: column; }
-        .card:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,51,102,0.15); border-color: #003366; }
+        .card { background: white; border-radius: 18px; box-shadow: 0 10px 28px rgba(0,0,0,0.08); text-align: center; cursor: pointer; transition: all 0.3s ease; overflow: hidden; border: 2px solid #e1e8ed; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 18px 40px rgba(0,51,102,0.22); border-color: #003366; }
         
-        .card-img-container { width: 100%; height: 140px; overflow: hidden; position: relative; background: #eef3f8; }
+        .card-img-container { width: 100%; height: 200px; overflow: hidden; position: relative; background: #eef3f8; }
         .card-img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
         .card:hover .card-img-container img { transform: scale(1.08); }
         
-        .card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
-        .card h3 { font-size: 16px; color: #003366; margin-bottom: 6px; font-weight: 700; }
-        .card p { font-size: 12px; color: #666; line-height: 1.4; }
+        .card-content { padding: 28px; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
+        .card h3 { font-size: 22px; color: #003366; margin-bottom: 10px; font-weight: 800; }
+        .card p { font-size: 16px; color: #555; line-height: 1.5; font-weight: 600; }
 
-        /* Modal Popup with Animation */
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); align-items: center; justify-content: center; backdrop-filter: blur(5px); animation: fadeIn 0.3s ease; }
-        .modal-content { background-color: white; padding: 30px; border-radius: 18px; max-width: 520px; width: 90%; text-align: left; box-shadow: 0 15px 35px rgba(0,0,0,0.3); position: relative; animation: zoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1); max-height: 85vh; overflow-y: auto; }
+        /* Modal Popup with Extra Large Readable Text & Animation */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); align-items: center; justify-content: center; backdrop-filter: blur(5px); animation: fadeIn 0.3s ease; }
+        .modal-content { background-color: white; padding: 45px; border-radius: 24px; max-width: 680px; width: 92%; text-align: left; box-shadow: 0 25px 55px rgba(0,0,0,0.4); position: relative; animation: zoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1); max-height: 90vh; overflow-y: auto; }
         
         @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
-        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 28px; font-weight: bold; cursor: pointer; color: #888; transition: color 0.2s; }
+        .close-btn { position: absolute; top: 20px; right: 28px; font-size: 36px; font-weight: bold; cursor: pointer; color: #888; transition: color 0.2s; }
         .close-btn:hover { color: #000; }
         
-        .modal-title { font-size: 22px; color: #003366; margin-bottom: 15px; border-bottom: 2px solid #eee; padding-bottom: 10px; font-weight: 700; }
-        .modal-subtitle { font-size: 15px; font-weight: bold; color: #004080; margin-top: 15px; margin-bottom: 8px; }
-        .doc-list { margin-bottom: 20px; padding-left: 20px; line-height: 1.6; font-size: 14px; color: #444; }
-        .steps-list { margin-bottom: 20px; padding-left: 20px; line-height: 1.6; font-size: 14px; color: #0056b3; font-weight: 500; }
+        .modal-title { font-size: 30px; color: #003366; margin-bottom: 22px; border-bottom: 3px solid #eee; padding-bottom: 15px; font-weight: 800; }
+        .modal-subtitle { font-size: 20px; font-weight: bold; color: #004080; margin-top: 25px; margin-bottom: 12px; }
+        .doc-list { margin-bottom: 30px; padding-left: 25px; line-height: 1.8; font-size: 18px; color: #222; font-weight: 600; }
+        .steps-list { margin-bottom: 30px; padding-left: 25px; line-height: 1.8; font-size: 18px; color: #0056b3; font-weight: 700; }
         
-        .whatsapp-btn { display: block; width: 100%; background-color: #25D366; color: white; text-align: center; padding: 15px; border-radius: 10px; text-decoration: none; font-weight: bold; font-size: 16px; border: none; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 12px rgba(37,211,102,0.3); }
-        .whatsapp-btn:hover { background-color: #1ebc57; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(37,211,102,0.4); }
-        .email-info { text-align: center; font-size: 13px; color: #666; margin-top: 15px; }
+        .whatsapp-btn { display: block; width: 100%; background-color: #25D366; color: white; text-align: center; padding: 20px; border-radius: 14px; text-decoration: none; font-weight: bold; font-size: 20px; border: none; cursor: pointer; transition: all 0.2s; box-shadow: 0 8px 20px rgba(37,211,102,0.4); }
+        .whatsapp-btn:hover { background-color: #1ebc57; transform: translateY(-2px); box-shadow: 0 10px 25px rgba(37,211,102,0.5); }
+        .email-info { text-align: center; font-size: 17px; color: #555; margin-top: 20px; font-weight: 600; }
 
-        /* Big Professional Footer */
-        footer { background: #001f3f; color: white; text-align: center; padding: 40px 20px; border-top: 6px solid #003366; margin-top: 50px; }
-        footer p { font-size: 16px; opacity: 0.95; margin-bottom: 8px; font-weight: 600; }
-        footer .footer-sub { font-size: 13px; opacity: 0.7; font-weight: normal; }
+        /* Extra Large Professional Footer */
+        footer { background: #001833; color: white; text-align: center; padding: 60px 20px; border-top: 10px solid #003366; margin-top: 80px; }
+        footer p { font-size: 20px; opacity: 0.95; margin-bottom: 12px; font-weight: 800; }
+        footer .footer-sub { font-size: 17px; opacity: 0.8; font-weight: 500; }
     </style>
 </head>
 <body>
@@ -91,16 +96,20 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K3PH9CSK"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-    <!-- Big Professional Header -->
+    <!-- Extra Large Professional Header -->
     <header>
         <h1>MARHABA TYPING & DOCUMENT CLEARING</h1>
         <p>Old Industrial Area, Umm Al Quwain</p>
-        <p style="margin-top: 10px; font-size: 16px;">📱 Mob: 056 934 9333 &nbsp;|&nbsp; ✉️ Email: marhabatypinguaq@gmail.com</p>
+        <p style="margin-top: 15px; font-size: 20px;">📱 Mob: 056 934 9333 &nbsp;|&nbsp; ✉️ Email: marhabatypinguaq@gmail.com</p>
     </header>
 
     <!-- ================= PAGE 1: HOME / WELCOME VIEW ================= -->
     <div id="homeView" class="view-section active">
         <div class="welcome-hero">
+            <!-- Custom Logo Added Here -->
+            <div class="home-logo">
+                <img src="light blue.png" alt="Marhaba Logo">
+            </div>
             <h2>Welcome to Marhaba Typing Services</h2>
             <p>Your trusted partner for fast and reliable government document clearing, visa processing, and typing solutions in Umm Al Quwain.</p>
             <button class="enter-btn" onclick="showServicesView()">Explore Services & Requirements →</button>
@@ -258,11 +267,11 @@
         </div>
     </div>
 
-    <!-- Big Professional Footer -->
+    <!-- Extra Large Professional Footer -->
     <footer>
         <p>MARHABA TYPING & DOCUMENT CLEARING</p>
         <p>Old Industrial Area, Umm Al Quwain, UAE | Mob: 056 934 9333</p>
-        <p class="footer-sub" style="margin-top: 12px;">Powered by ATAVA Digital Services & Trading</p>
+        <p class="footer-sub" style="margin-top: 15px;">Powered by ATAVA Digital Services & Trading</p>
     </footer>
 
     <script>
@@ -298,7 +307,7 @@
 
             if(applicantDocs.length > 0) {
                 var apHeader = document.createElement('li');
-                apHeader.innerHTML = '<strong style="margin-top:5px; display:inline-block;">Applicant / Worker Documents:</strong>';
+                apHeader.innerHTML = '<strong style="margin-top:10px; display:inline-block;">Applicant / Worker Documents:</strong>';
                 docList.appendChild(apHeader);
                 applicantDocs.forEach(function(doc) {
                     var li = document.createElement('li');
